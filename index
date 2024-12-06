@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Date Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .date-widget {
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .date-widget p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="date-widget">
+    <p id="today-date">Loading today's date...</p>
+</div>
+
+<script>
+    // Function to get and display today's date information
+    function displayTodayDate() {
+        // Get current date
+        const today = new Date();
+
+        // Get the day of the week, day of the month, and month
+        const dayOfWeek = today.toLocaleString('en-US', { weekday: 'long' });
+        const dayOfMonth = today.getDate();
+        const month = today.toLocaleString('en-US', { month: 'long' });
+
+        // Update the text in the div
+        const dateString = `Today is ${dayOfWeek}, ${dayOfMonth} ${month}`;
+        document.getElementById('today-date').textContent = dateString;
+    }
+
+    // Run the function to display today's date when the page loads
+    window.onload = displayTodayDate;
+</script>
+
+</body>
+</html>
